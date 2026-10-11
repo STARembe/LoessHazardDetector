@@ -1,0 +1,62 @@
+# LoessHazardDetector default configuration
+#
+# Priority (from lowest to highest):
+#   1. this file
+#   2. a user config passed via --config <path>
+#   3. command-line arguments
+#
+# All values can be overridden from the command line.
+
+# ---------------------------------------------------------------
+# Model
+# ---------------------------------------------------------------
+model:
+  name: yolov8_assem
+  weights: weights/yolov8_assem.pt
+  pretrained: false
+
+# ---------------------------------------------------------------
+# Dataset
+# ---------------------------------------------------------------
+data:
+  yaml: data/Landslide.yaml
+
+# ---------------------------------------------------------------
+# Training
+# ---------------------------------------------------------------
+train:
+  epochs: 350
+  lr0: 0.001
+  batch: 8
+  workers: 8
+  imgsz: 512
+
+# ---------------------------------------------------------------
+# Validation
+# ---------------------------------------------------------------
+val:
+  split: val
+  plots: false
+  save_json: false
+
+# ---------------------------------------------------------------
+# Prediction
+# ---------------------------------------------------------------
+predict:
+  tif: examples/sample.tif
+  out: null                 # null -> auto-generate runs/predictN/result.shp
+  tile: 512
+  stride: 480
+  edge_policy: include_last
+  band_order: [1, 2, 3]
+  lower: 5.0
+  upper: 95.0
+  gamma: null
+  imgsz: 512
+  conf: 0.25
+  merge_iou: 0.5
+
+# ---------------------------------------------------------------
+# Runtime
+# ---------------------------------------------------------------
+device: null                # null -> auto-detect CUDA or fall back to CPU

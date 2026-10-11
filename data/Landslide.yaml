@@ -1,0 +1,26 @@
+# Dataset configuration for LoessHazardDetector
+#
+# 'path' is the dataset root directory.
+# All relative paths below are resolved against it.
+# Change 'path' to point to your own dataset.
+
+path: /root/autodl-tmp/dataset1
+
+# Option A (txt list mode, used in this project):
+# Each txt file lists image paths, one per line.
+train: train.txt
+val:   val.txt
+test:  test.txt
+
+# Option B (directory mode, for reference):
+# train: images/train
+# val:   images/val
+# test:  images/test
+
+# Number of classes
+nc: 2
+
+# Class names
+names: ['L', 'M']
+# L = landslide
+# M = mining-induced subsidence

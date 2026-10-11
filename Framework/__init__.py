@@ -1,0 +1,1 @@
+"""LoessHazardDetector framework package."""
