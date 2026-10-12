@@ -70,18 +70,35 @@ Zhang, D., Zhang, L., Dong, J., Wang, Y., Yang, C., Liao, M., 2024. Improved pha
 
 ## Installation
 
-Requirements:
+### Requirements
+
 - Python >= 3.8
-- PyTorch >= 1.13
+- PyTorch >= 1.13 (2.0 recommended)
 - CUDA (optional, recommended for training and large-scale prediction)
 
-Clone and install dependencies:
+### Steps
 
-git clone https://github.com/STARembe/LoessHazardDetector.git
+1. Clone the repository:
+
+git clone https://github.com/<your-username>/LoessHazardDetector.git
 cd LoessHazardDetector
+
+2. Install PyTorch.
+
+For GPU support, install the CUDA build that matches your driver before
+installing the rest. For example, with CUDA 11.8:
+
+pip install torch==2.0.0 torchvision==0.15.1 --index-url https://download.pytorch.org/whl/cu118
+
+Check https://pytorch.org/get-started/locally/ for other CUDA versions or
+the CPU-only build. If you skip this step, pip will install the CPU-only
+version when you run the next command, which works but is slow for training.
+
+3. Install the remaining dependencies:
+
 pip install -r requirements.txt
 
-Install as an importable package:
+4. Optional: install as an importable package.
 
 pip install -e .
 
